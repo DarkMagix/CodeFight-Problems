@@ -1,0 +1,24 @@
+std::vector<std::string> addBorder(std::vector<std::string> picture) {
+	vector<string>answer;
+	string stars;
+	for (int i = 0; i < picture[0].length() + 2; i++)
+		stars += "*";
+	answer.push_back(stars);
+
+	for (int i = 0; i < picture.size(); i++) {
+		string row = "*";
+		for (int j = 0; j < picture[0].length(); j++)
+		{
+			row += picture[i][j];
+		}
+		row += "*";
+		answer.push_back(row);
+	}
+	answer.push_back(stars);
+	for (int i = 0; i < answer.size(); i++)
+	{
+		printf("%s\n", answer[i].c_str());
+	}
+
+	return answer;
+}
