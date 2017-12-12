@@ -1,0 +1,20 @@
+int matrixElementsSum(std::vector<std::vector<int>> matrix) {
+	int rows = matrix.size();
+	int cols = matrix[0].size();
+	int sum = 0;
+	
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			if (matrix[i][j] != 0)
+				sum += matrix[i][j];
+			else
+				for (int k = i; k < rows; k++)
+                {
+                    		matrix[k][j] = 0;
+                }
+		}
+    }
+	return sum;
+}
