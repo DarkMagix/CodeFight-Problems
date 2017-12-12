@@ -1,0 +1,23 @@
+bool isLucky(int n) {
+	vector<int> numbers;
+	int sum = 0;
+	while (n > 0) {
+		numbers.push_back(n % 10);
+		n /= 10;
+	}
+	for (int i = 0; i < numbers.size(); i++) {
+		if (i < numbers.size() / 2) {
+			sum+=numbers[i];
+		}
+		else {
+			sum -= numbers[i];
+		}
+
+	}
+	if (sum)
+		return false;
+	else
+		return true;
+    
+    
+}
