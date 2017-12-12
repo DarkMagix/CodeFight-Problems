@@ -1,0 +1,18 @@
+bool isPalindrome(vector<int> param)
+{
+	int length = param.size();
+	for (int i = 0; i < length / 2; i++)
+		if (param[i] != param[length - i - 1])
+			return false;
+	return true;
+}
+bool isListPalindrome(ListNode<int> * l) {
+	vector<int> nums;
+	while (l != NULL)
+	{
+		nums.push_back(l->value);
+		l = l->next;
+	}
+	return isPalindrome(nums);
+
+}
