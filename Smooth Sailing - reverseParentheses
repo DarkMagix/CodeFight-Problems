@@ -1,0 +1,12 @@
+std::string reverseParentheses(std::string s) {
+	while (s.find('(') != -1)
+	{
+		int lastLeft = (int)s.rfind('(');
+		int firstRightAfter = (int)s.find(')', lastLeft);
+		reverse(s.begin() + lastLeft+1, s.begin() + firstRightAfter);
+		s.erase(s.begin() + firstRightAfter);
+		s.erase(s.begin() + lastLeft);
+	}
+	return s;
+
+}
