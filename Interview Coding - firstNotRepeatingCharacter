@@ -1,0 +1,18 @@
+char firstNotRepeatingCharacter(std::string s) {
+	unordered_map<char, int>stringMap;
+	const char* cStr = s.c_str();
+	//	printf("%s %d", "Size of String is:", s.size());
+	for (int i = 0; i < s.size(); i++)
+	{
+		stringMap[cStr[i]]++;
+	}
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (stringMap[cStr[i]] == 1)
+			return cStr[i];
+	}
+
+
+
+	return '_';
+}
