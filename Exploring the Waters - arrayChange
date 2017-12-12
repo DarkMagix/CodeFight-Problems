@@ -1,0 +1,20 @@
+int arrayChange(std::vector<int> inputArray) {
+
+	int change;
+	int moves = 0;
+	do
+	{
+		change = 0;
+		for (int x = 0; x < inputArray.size() - 1; x++)
+		{
+			if (inputArray[x] >= inputArray[x + 1])
+			{
+				inputArray[x + 1]++;
+				moves++;
+				change++;
+			}
+		}
+
+	} while (change != 0);
+	return moves;
+}
