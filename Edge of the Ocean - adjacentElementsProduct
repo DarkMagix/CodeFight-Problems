@@ -1,0 +1,13 @@
+int adjacentElementsProduct(std::vector<int> inputArray) {
+	vector<int> prods;
+	prods.resize(inputArray.size()-1);
+	printf("Size of Prods: %d\n", prods.size());
+	printf("Size of Prods: %d", inputArray.size());
+	for (int i = 0; i < prods.size(); i++)
+	{
+		prods[i] = inputArray[i] * inputArray[i + 1];
+	}
+	int maxNum = *max_element(prods.begin(), prods.end());
+	printf("\nMax Number Should be %d", maxNum);
+	return maxNum;
+}	
