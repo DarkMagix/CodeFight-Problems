@@ -1,0 +1,14 @@
+int firstDuplicate(std::vector<int> a) {
+	unordered_map<int, int> intMap;
+	int flag = 0;
+	for (int i = 0; i < a.size(); i++)
+	{
+		intMap[a[i]]++;
+		if (intMap[a[i]] > 1)
+		{
+			return a[i];
+			flag = 1;
+		}
+	}
+    return -1;
+}
