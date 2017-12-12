@@ -1,0 +1,21 @@
+bool areSimilar(std::vector<int> a, std::vector<int> b) {
+	int noSwaps = 0;
+	for (int i = 0; i < a.size(); i++)
+		if (a[i] != b[i])
+			noSwaps++;
+	if (noSwaps < 2)
+		return true;
+	if (noSwaps == 2)
+	{
+		sort(a.begin(), a.end());
+		sort(b.begin(), b.end());
+		if (a == b)
+			return true;
+
+	}
+	return false;
+
+
+
+
+}
