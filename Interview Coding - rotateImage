@@ -1,0 +1,19 @@
+std::vector<std::vector<int>> rotateImage(std::vector<std::vector<int>> a) {
+vector<vector<int>> tFill;
+	
+	int size = a[0].size();
+	tFill.resize(size);
+	for (int i = 0; i < size; ++i)
+		tFill[i].resize(size);
+	
+
+	for (int x = 0; x<size; x++)
+		for (int y = 0; y<size; y++)
+			tFill[x][(size-1)-y] = a[y][x];
+
+
+		for (int x = 0; x<size; x++)
+			for (int y = 0; y<size; y++)
+				a[y][x] = tFill[y][x];
+    return tFill;
+}
