@@ -1,0 +1,12 @@
+int makeArrayConsecutive2(std::vector<int> statues) {
+int size = statues.size();
+	sort(statues.begin(), statues.end());
+	int sum = 0;
+	for(int i=1;i<size;i++){
+		if (statues[i] - statues[i - 1] > 1)
+		{
+			sum += statues[i] - statues[i - 1]+-1;
+		}
+	}
+	return sum;
+}
