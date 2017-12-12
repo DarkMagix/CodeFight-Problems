@@ -1,0 +1,19 @@
+ListNode<int> * removeKFromList(ListNode<int> * l, int k) {
+	ListNode<int> *tmp = l, *prev = NULL;
+	if (l == NULL) return l;
+	while (tmp) {
+		if (tmp->value == k)
+		{
+			if (prev)
+				prev->next = tmp->next;
+			else
+				l = l->next;
+			//delete tmp; ??
+		}
+		else
+			prev = tmp;
+
+		tmp = tmp->next;
+	}
+	return l;
+}
