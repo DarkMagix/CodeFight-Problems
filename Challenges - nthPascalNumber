@@ -1,0 +1,27 @@
+int nthPascalNumber(int n) {
+	int** arr = new int*[n];
+	int nthSpot = 0;
+	for (int i = 0; i < n; i++)
+		arr[i] = new int[n];
+	for (int row = 0; row < n; row++)
+		for (int spot = 0; spot <= row; spot++)
+		{
+			if (row == spot || spot == 0)
+				arr[row][spot] = 1;
+			else
+				arr[row][spot] = arr[row - 1][spot - 1] + arr[row - 1][spot];
+		}
+
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j <= i; j++)
+		{
+			nthSpot++;
+			if (nthSpot == n)
+				return arr[i][j];
+		}
+	for (int i = 0; i < n; i++)
+		delete[] arr[i];
+	delete[] arr;
+
+	return 0;
+}
