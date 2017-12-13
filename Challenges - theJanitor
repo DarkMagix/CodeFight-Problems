@@ -1,0 +1,22 @@
+int cToInt(char * param)
+{
+	return (*param - ('0') - 49);
+}
+std::vector<int> theJanitor(std::string word) {
+	vector<int>abcRes;
+	char alphabet[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+	int size = sizeof(alphabet);
+	abcRes.resize(26);
+	fill(abcRes.begin(), abcRes.end(), 0);
+	int left, right;
+	for (int i = 0; i < word.length(); i++)
+	{
+		left = word.find_first_of(word[i]);
+		right = word.find_last_of(word[i]);
+		char *spot = find(alphabet, &alphabet[size], word[i]);
+		abcRes[cToInt(spot)] = max(left, right) - min(left, right)+1;
+	}
+	for (int i = 0; i < abcRes.size(); i++)
+			printf("%d ", abcRes[i]);
+	return abcRes;
+}
