@@ -1,0 +1,14 @@
+int findDiff(int a, int b)
+{
+	return abs(a - b);
+}
+int arrayMaximalAdjacentDifference(std::vector<int> iA) {
+	int max = 0;
+	//return max;
+	for (int i = 1; i < iA.size(); i++)
+	{
+		int temp= findDiff(iA[i], iA[i - 1]);
+		(temp > max) ? max = temp: max;
+	}
+	return max;
+}
