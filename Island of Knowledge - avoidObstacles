@@ -1,0 +1,26 @@
+int avoidObstacles(std::vector<int> inputArray) {
+
+	int mod = 0;
+	int count = 0;
+	for (int i = 1; i <= 10; i++)
+	{
+		for (int j = 0; j < inputArray.size(); j++)
+		{
+			mod = inputArray[j] % i;
+			if (count == inputArray.size())
+				return (i - 1);
+			if (mod != 0 )
+			{
+				printf("%d mod %d = %d\n", inputArray[j], i, mod);
+				count++;
+			}
+			else
+			{
+				count = 0;
+				break;
+				
+			}
+		}
+	}
+	return 0;
+}
