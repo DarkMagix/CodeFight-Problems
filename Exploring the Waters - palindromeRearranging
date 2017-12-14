@@ -1,0 +1,14 @@
+bool palindromeRearranging(std::string inputString)
+{
+	int size = inputString.size();
+	const char * cStr = inputString.c_str();
+	unordered_map<char, int>numOdds;
+	unordered_map<char, int>::iterator it;
+	int oddC = 0;
+	for (int i = 0; i < size; i++)
+		numOdds[cStr[i]]++;
+	for (it = numOdds.begin(); it != numOdds.end(); it++)
+		if (it->second % 2 != 0)
+			oddC++;
+	return (oddC > 1) ? false : true;
+}
