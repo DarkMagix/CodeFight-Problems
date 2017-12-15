@@ -1,0 +1,41 @@
+int getVecSum(std::vector<std::vector<int>> image, int rows, int cols)
+{
+	
+	int sum = 0;
+	int length= image.size();
+	int width = image[0].size();
+	for (int x = 0; x <= 2; x++) {
+			for (int y = 0; y <=2; y++)
+			{
+				sum += image[x+rows][y + cols];
+				printf("%d ", image[x+rows][y + cols]);
+			}
+			printf("\n");
+		}
+
+	//printf("The Sum of %d gives %d", num, num / 9);
+	return sum / 9;
+}
+std::vector<std::vector<int>> boxBlur(std::vector<std::vector<int>> image) 
+{
+
+	std::vector<std::vector<int>> answer;
+	vector<int>tVec;
+	int left = image.size();
+	int right = image[0].size();
+	int sum = 0;
+	
+		for (int i = 0; i <left-2; i++)
+		{
+			for (int j = 0; j <right-2 ; j++)
+			{
+				sum = getVecSum(image,i,j);
+				tVec.push_back(sum);
+			}
+			sum = 0;
+			answer.push_back(tVec);
+			tVec.clear();
+			printf("\n");
+		}
+	return answer;
+}
